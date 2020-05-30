@@ -1,0 +1,25 @@
+{
+  "name": "abc",
+  "version": "1.0.0",
+  "description": "abc",
+  "main": "index.js",
+  "scripts": {
+    "eslint": "eslint ./src/*.js; true",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/javazen/abc.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/javazen/abc/issues"
+  },
+  "homepage": "https://github.com/javazen/abc#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.1.0"
+  }
+}
