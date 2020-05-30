@@ -1,3 +1,7 @@
 .positionABSOLUTE {
 	position: absolute;
 }
+
+.wrongTotalColoring {
+  color: red
+}
