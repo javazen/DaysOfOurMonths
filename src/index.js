@@ -1,32 +1,42 @@
 (function() {
   'use strict';
   
-  let m31Input, m30Input, m29Input, m28Input, leapCB, totalDaysInput;
+  let leapCB, totalDaysInput;
   let mTotal, mTotalNeeded;
+  const monthsInputs = {};
   const monthsObj = {m31:7, m30:4, m29:0, m28:1, leapValue:false};
 
   
-  document.addEventListener("DOMContentLoaded", function(event) {
-    m31Input = document.getElementById("m31");
-    m30Input = document.getElementById("m30");
-    m29Input = document.getElementById("m29");
-    m28Input = document.getElementById("m28");
-    leapCB = document.getElementById("leap");
+  document.addEventListener("DOMContentLoaded", function() {
+    
+    ['m31', 'm30', 'm29', 'm28'].forEach( (item) => {
+      monthsInputs[item] = document.getElementById(item);
+      monthsInputs[item].setAttribute("value", monthsObj[item]);
+      addListeners(monthsInputs[item]);
+    });
+        
     totalDaysInput = document.getElementById("totalDays");
-    m31Input.setAttribute("placeholder", monthsObj.m31);
-    m30Input.setAttribute("placeholder", monthsObj.m30);
-    m29Input.setAttribute("placeholder", monthsObj.m29);
-    m28Input.setAttribute("placeholder", monthsObj.m28);
-    
-    m31Input.addEventListener('input', updateValue);
-    function updateValue(e) {
-      monthsObj[this.getAttribute("id")] = +e.target.value;
-      updateTotal(monthsObj);
-    }
-    
+    leapCB = document.getElementById("leap");
     leapCB.checked = monthsObj.leapValue;
+    leapCB.addEventListener('change', clickLeapCB);
     updateTotal(monthsObj);
   });
+  
+  function clickInput() {
+    this.select();
+  }
+  function updateValue(e) {
+    monthsObj[this.getAttribute("id")] = +e.target.value;
+    updateTotal(monthsObj);
+  }
+  function addListeners(elem) {
+    elem.addEventListener('click', clickInput);
+    elem.addEventListener('input', updateValue);
+  }
+  function clickLeapCB() {
+    monthsObj.leapValue = (this.checked);
+    updateTotal(monthsObj);
+  }
   
   function updateTotal(monthsObj) {
     mTotalNeeded = (monthsObj.leapValue) ? 366 : 365;
