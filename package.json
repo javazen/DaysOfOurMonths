@@ -1,7 +1,7 @@
 {
-  "name": "abc",
-  "version": "1.0.0",
-  "description": "abc",
+  "name": "DaysOfOurMonths",
+  "version": "0.1.0",
+  "description": "Analyze number of days in months and combinations of months",
   "main": "index.js",
   "scripts": {
     "eslint": "eslint ./src/*.js; true",
