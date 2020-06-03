@@ -1,7 +1,7 @@
 {
-  "name": "abc",
-  "version": "1.0.0",
-  "description": "abc",
+  "name": "DaysOfOurMonths",
+  "version": "0.1.0",
+  "description": "Analyze number of days in months and combinations of months",
   "main": "index.js",
   "scripts": {
     "eslint": "eslint ./src/*.js; true",
@@ -9,15 +9,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/javazen/abc.git"
+    "url": "git+https://github.com/javazen/DaysOfOurMonths.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/javazen/abc/issues"
+    "url": "https://github.com/javazen/DaysOfOurMonths/issues"
   },
-  "homepage": "https://github.com/javazen/abc#readme",
+  "homepage": "https://github.com/javazen/DaysOfOurMonths#readme",
   "dependencies": {},
   "devDependencies": {
     "eslint": "^7.1.0"
