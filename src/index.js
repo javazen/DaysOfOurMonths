@@ -79,17 +79,28 @@
     
     let possibles = generatePossibles(categories);
     
-    const scoreMap = {};
-    let bestScore = 13;
-    let bestScoreExample;
+    const obj = {};
+    const scoreCounts = [];
+    obj.bestScore = 13;
+    obj.bestScoreExample;
+    obj.worstScore = -1;
+    obj.worstScoreExample;
     for (let i=0; i<possibles.length; i++) {
       const aPossible = possibles[i];
       const aScore = quarterCount_92(aPossible);
-      if (aScore < bestScore) {
-        bestScore = aScore;
-        bestScoreExample = aPossible;
+      scoreCounts[aScore]++;
+      if (aScore < obj.bestScore) {
+        obj.bestScore = aScore;
+        obj.bestScoreExample = aPossible;
+      }
+      if (aScore > obj.worstScore) {
+        obj.worstScore = aScore;
+        obj.worstScoreExample = aPossible;
       }
     }
+    
+    obj.scoreCounts = scoreCounts;
+    return obj;
     
   }
   
