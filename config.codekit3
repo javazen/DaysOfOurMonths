@@ -28,12 +28,6 @@
 		"oAP": "/build/.gitignore",
 		"oF": 0
 		},
-	"/build": {
-		"ft": 65536,
-		"oA": 1,
-		"oAP": "/build/build",
-		"oF": 0
-		},
 	"/css/index.css": {
 		"aP": 1,
 		"bl": 0,
@@ -93,6 +87,17 @@
 		"rFN": 0,
 		"uCM": 0
 		},
+	"/src/days.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 1,
+		"oAP": "/build/src/days.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
 	"/src/index.js": {
 		"bF": 0,
 		"ft": 64,
@@ -100,6 +105,25 @@
 		"mi": 1,
 		"oA": 0,
 		"oAP": "/build/src/index.js",
+		"oF": 0,
+		"sC": 3,
+		"tS": 0
+		},
+	"/test/mocha.html": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 1,
+		"oAP": "/build/test/mocha.html",
+		"oF": 1
+		},
+	"/test/spec/test_days.js": {
+		"bF": 0,
+		"ft": 64,
+		"ma": 0,
+		"mi": 1,
+		"oA": 0,
+		"oAP": "/build/test/spec/test_days.js",
 		"oF": 0,
 		"sC": 3,
 		"tS": 0
@@ -115,7 +139,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 612044195.42267203
+	"lastBuiltDate": 615797859.51684201
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
