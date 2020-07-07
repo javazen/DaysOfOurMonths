@@ -1,5 +1,5 @@
 // process( [28,30,30,30,30], false )
-export function process(non31array, isLeapYear) {
+function process(non31array, isLeapYear) {
   const totalDaysNeeded = (isLeapYear) ? 366 : 365;
   let m28 = 0, m29 = 0, m30 = 0, m31=12-non31array.length, totalDays=0;
   for (let i=0; i<non31array.length; i++) {
@@ -61,7 +61,7 @@ export function process(non31array, isLeapYear) {
   return obj;
 }
 
-export function getUniqueMonths(allMonthsArray) {
+function getUniqueMonths(allMonthsArray) {
   let uniqueMonthsArray = [];
   for (let i=0; i<allMonthsArray.length; i++) {
     const m = allMonthsArray[i];
@@ -72,7 +72,7 @@ export function getUniqueMonths(allMonthsArray) {
 
 // when finally reach end of recursion, should return an array of arrays
 // after first recursive return, we have allMonthsArray=[30,28] and i points to 28, which we just did
-export function generatePossibles(allMonthsArray) {
+function generatePossibles(allMonthsArray) {
   let possibles = [];
   let len = allMonthsArray.length;
   if (len === 1) {
