@@ -1,4 +1,4 @@
-//import {process} from './days.js';
+import {process} from './days.js';
 
 'use strict';
 
