@@ -73,10 +73,11 @@ export function getUniqueMonths(allMonthsArray) {
 // when finally reach end of recursion, should return an array of arrays
 // after first recursive return, we have allMonthsArray=[30,28] and i points to 28, which we just did
 export function generatePossibles(allMonthsArray) {
+  // const uniq = getUniqueMonths(allMonthsArray);
   let possibles = [];
   let len = allMonthsArray.length;
   if (len === 1) {
-    possibles = allMonthsArray.slice(0);
+    possibles = [allMonthsArray.slice(0)];
   } else {
     for (let i=0; i<allMonthsArray.length; i++) {
       let m0 = allMonthsArray[i];
