@@ -25,6 +25,8 @@ suite('Testing test_days.js', function() {
 
   suite('Testing generatePossibles', function() {
     var areSomePeriodVarsMissingArray = [
+      {arr:[28,30,30,30,30,31,31,31], len: 280},
+      // {arr:[28,30,30,30,30,31,31,31,31], len: 630},
       {arr:[], len: 0, result: []},
       {arr:['a'], len: 1, result: [ ['a'] ]},
       {arr:['a','b'], len: 2, result: [ ['a','b'],['b','a'] ]},
@@ -35,10 +37,14 @@ suite('Testing test_days.js', function() {
         ['c','a','b','d'],['c','a','d','b'],['c','b','a','d'],['c','b','d','a'],['c','d','a','b'],['c','d','b','a'],
         ['d','a','b','c'],['d','a','c','b'],['d','b','a','c'],['d','b','c','a'],['d','c','a','b'],['d','c','b','a'],
       ]},
+      {arr:['a','b','c','d','e'], len: 120},
+      {arr:['a','b','c','d','e','f'], len: 720},
       
       {arr:['a','a'], len: 1, result: [ ['a','a'] ]},
       {arr:['a','a','b'], len: 3, result: [ ['a','a','b'],['a','b','a'],['b','a','a'] ]},
       {arr:['a','a','a','b'], len: 4, result: [ ['a','a','a','b'],['a','a','b','a'],['a','b','a','a'],['b','a','a','a'] ]},
+      {arr:['a','a','a','b','c'], len: 20},
+      {arr:['a','a','b','b','c'], len: 30},
 
       {arr:['a','b','c','a'], len: 12, result: [
         ['a','b','c','a'],['a','b','a','c'],['a','c','b','a'],['a','c','a','b'],['a','a','b','c'],['a','a','c','b'],

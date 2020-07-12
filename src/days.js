@@ -1,16 +1,9 @@
 // process( [28,30,30,30,30], false )
 export function process(non31array, isLeapYear) {
   const totalDaysNeeded = (isLeapYear) ? 366 : 365;
-  let m28 = 0, m29 = 0, m30 = 0, m31=12-non31array.length, totalDays=0;
+  let m31=12-non31array.length, totalDays=0;
   for (let i=0; i<non31array.length; i++) {
     let aMonth = non31array[i];
-    if (aMonth === 28) {
-      m28++;
-    } else if (aMonth === 29) {
-      m29++;
-    } else if (aMonth === 30) {
-      m30++;
-    }
     totalDays += aMonth;
   }
   totalDays += 31*m31;
@@ -20,20 +13,8 @@ export function process(non31array, isLeapYear) {
 
   let allMonthsArray = non31array.slice(0);
   // for (let i=0; i<monthsObj.m31; i++) allMonthsArray.push(31);
-  for (let i=0; i<3; i++) allMonthsArray.push(31);
-  let uniqueMonthsArray = [31];
-  if (m30) uniqueMonthsArray.push(30);
-  if (m29) uniqueMonthsArray.push(29);
-  if (m28) uniqueMonthsArray.push(28);
-  // const infoObj = {allMonthsArray, uniqueMonthsArray};
+  for (let i=0; i<4; i++) allMonthsArray.push(31);
   
-  // const a = generatePossibles(['a']);
-  // const ab = generatePossibles(['a', 'b']);
-  // const abc = generatePossibles(['a', 'b', 'c']);
-  // const aa = generatePossibles(['a', 'a']);
-  // const aab = generatePossibles(['a', 'a', 'b']);
-  
-  // let possibles = generatePossibles({allMonthsArray:['a'], uniqueMonthsArray:['a']});
   let t0 = performance.now();
   let possibles = generatePossibles(allMonthsArray);
   let t1 = performance.now();
@@ -74,9 +55,10 @@ export function getUniqueMonths(allMonthsArray) {
 // after first recursive return, we have allMonthsArray=[30,28] and i points to 28, which we just did
 export function generatePossibles(allMonthsArray) {
   // const uniq = getUniqueMonths(allMonthsArray);
+  // const ulen = uniq.length;
   let possibles = [];
   let len = allMonthsArray.length;
-  if (len === 1) {
+  if (len === 1) { // ulen
     possibles = [allMonthsArray.slice(0)];
   } else {
     for (let i=0; i<allMonthsArray.length; i++) {
@@ -109,18 +91,6 @@ function contains(arr, elem) {
   }
   return false;
 }
-
-// function removeElem(arr, elem) {
-//   let adjArr = arr.slice(0);
-//   for (let i=0; i<adjArr.length; i++) {
-//     if (adjArr[i] === elem) {
-//       // remove the first instance of elem we find
-//       adjArr.splice(i, 1);
-//       break;
-//     }
-//   }
-//   return adjArr;
-// }
 
 function quarterCount_92(mArray) {
   let len = mArray.length;
