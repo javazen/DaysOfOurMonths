@@ -25,8 +25,6 @@ suite('Testing test_days.js', function() {
 
   suite('Testing generatePossibles', function() {
     var areSomePeriodVarsMissingArray = [
-      {arr:[28,30,30,30,30,31,31,31], len: 280},
-      // {arr:[28,30,30,30,30,31,31,31,31], len: 630},
       {arr:[], len: 0, result: []},
       {arr:['a'], len: 1, result: [ ['a'] ]},
       {arr:['a','b'], len: 2, result: [ ['a','b'],['b','a'] ]},
@@ -55,6 +53,12 @@ suite('Testing test_days.js', function() {
         ['a','a','b','b'],['a','b','a','b'],['a','b','b','a'],
         ['b','a','a','b'],['b','a','b','a'],['b','b','a','a'],
       ]},
+
+      {arr:[28,30,30,30,30,31,31,31], len: 280},
+      {arr:[28,30,30,30,30,31,31,31,31], len: 630},
+      {arr:[28,30,30,30,30,31,31,31,31,31], len: 1260},
+      {arr:[28,30,30,30,30,31,31,31,31,31,31], len: 2310},
+      {arr:[28,30,30,30,30,31,31,31,31,31,31,31], len: 3960},
     ];
     areSomePeriodVarsMissingArray.forEach(function(aTest) {
       const str = '[...] of length ' + aTest.len;

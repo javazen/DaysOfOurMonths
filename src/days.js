@@ -12,8 +12,7 @@ export function process(non31array, isLeapYear) {
   }
 
   let allMonthsArray = non31array.slice(0);
-  // for (let i=0; i<monthsObj.m31; i++) allMonthsArray.push(31);
-  for (let i=0; i<4; i++) allMonthsArray.push(31);
+  for (let i=0; i<(12-non31array.length); i++) allMonthsArray.push(31);
   
   let t0 = performance.now();
   let possibles = generatePossibles(allMonthsArray);
@@ -54,42 +53,32 @@ export function getUniqueMonths(allMonthsArray) {
 // when finally reach end of recursion, should return an array of arrays
 // after first recursive return, we have allMonthsArray=[30,28] and i points to 28, which we just did
 export function generatePossibles(allMonthsArray) {
-  // const uniq = getUniqueMonths(allMonthsArray);
-  // const ulen = uniq.length;
   let possibles = [];
-  let len = allMonthsArray.length;
-  if (len === 1) { // ulen
+  const uniqueMonthsArray = getUniqueMonths(allMonthsArray);
+  const ulen = uniqueMonthsArray.length;
+  
+  if (ulen <= 1) {
     possibles = [allMonthsArray.slice(0)];
   } else {
-    for (let i=0; i<allMonthsArray.length; i++) {
-      let m0 = allMonthsArray[i];
+    for (let i=0; i<ulen; i++) {
+      let m0 = uniqueMonthsArray[i];
       let prefix = [m0];
       
       // make copy, take out the prefix element
       let adjArray = allMonthsArray.slice(0);
-      adjArray.splice(i, 1);
-      
+      const pos = adjArray.indexOf(m0);
+      adjArray.splice(pos, 1);
+
       let suffixes = generatePossibles(adjArray);
       for (let j=0; j<suffixes.length; j++) {
         let suffix = suffixes[j];
         let aPossible = prefix.concat(suffix);
-        if (!contains(possibles, aPossible)) 
-          possibles.push(aPossible);
+        possibles.push(aPossible);
       }
     }
   }
   
   return possibles;
-}
-
-function contains(arr, elem) {
-  const elemStr = JSON.stringify(elem);
-  for (let i=0; i<arr.length; i++) {
-    let existing = arr[i];
-    if (JSON.stringify(existing)==elemStr)
-      return true;
-  }
-  return false;
 }
 
 function quarterCount_92(mArray) {

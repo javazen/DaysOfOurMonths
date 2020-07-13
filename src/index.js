@@ -1,7 +1,5 @@
 import {process} from './days.js';
 
-'use strict';
-
 let leapCB, totalDaysInput;
 let mTotal, mTotalNeeded;
 const monthsInputs = {};
