@@ -14,26 +14,26 @@ export function process(non31array, isLeapYear) {
   let allMonthsArray = non31array.slice(0);
   for (let i=0; i<(12-non31array.length); i++) allMonthsArray.push(31);
   
-  let t0 = performance.now();
+  // let t0 = performance.now();
   let possibles = generatePossibles(allMonthsArray);
-  let t1 = performance.now();
-  console.log('n= ' + allMonthsArray.length + ' ms= ' + (t1-t0) + ' Ngen= ' + possibles.length);
+  // let t1 = performance.now();
+  // console.log('n= ' + allMonthsArray.length + ' ms= ' + (t1-t0) + ' Ngen= ' + possibles.length);
 
   const obj = {};
   const scoreCounts = [0,0,0, 0,0,0, 0,0,0, 0,0,0];
-  obj.bestScore = 13;
-  obj.worstScore = -1;
+  obj.lowScore = 13;
+  obj.highScore = -1;
   for (let i=0; i<possibles.length; i++) {
     const aPossible = possibles[i];
     const aScore = quarterCount_92(aPossible);
     scoreCounts[aScore]++;
-    if (aScore < obj.bestScore) {
-      obj.bestScore = aScore;
-      obj.bestScoreExample = aPossible;
+    if (aScore < obj.lowScore) {
+      obj.lowScore = aScore;
+      obj.lowScoreExample = aPossible;
     }
-    if (aScore > obj.worstScore) {
-      obj.worstScore = aScore;
-      obj.worstScoreExample = aPossible;
+    if (aScore > obj.highScore) {
+      obj.highScore = aScore;
+      obj.highScoreExample = aPossible;
     }
   }
   
@@ -50,16 +50,15 @@ export function getUniqueMonths(allMonthsArray) {
   return uniqueMonthsArray;
 }
 
-// when finally reach end of recursion, should return an array of arrays
-// after first recursive return, we have allMonthsArray=[30,28] and i points to 28, which we just did
+// return an array of possible arrangement arrays
 export function generatePossibles(allMonthsArray) {
   let possibles = [];
   const uniqueMonthsArray = getUniqueMonths(allMonthsArray);
   const ulen = uniqueMonthsArray.length;
   
-  if (ulen <= 1) {
+  if (ulen === 1) {
     possibles = [allMonthsArray.slice(0)];
-  } else {
+  } else if (ulen > 1) {
     for (let i=0; i<ulen; i++) {
       let m0 = uniqueMonthsArray[i];
       let prefix = [m0];
@@ -77,6 +76,7 @@ export function generatePossibles(allMonthsArray) {
       }
     }
   }
+  // if ulen === 0 return empty set
   
   return possibles;
 }

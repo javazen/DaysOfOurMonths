@@ -24,6 +24,8 @@ document.addEventListener("DOMContentLoaded", function() {
   for (let i=0; i<monthsObj.m29; i++) non31array.push(29);
   for (let i=0; i<monthsObj.m28; i++) non31array.push(28);
   const obj = process(non31array, leapCB.checked); // [28,30,30,30,30]
+  
+  updateOutput(obj);
 });
 
 function clickInput() {
@@ -51,5 +53,23 @@ function updateTotal(monthsObj) {
     totalDaysInput.classList.add("wrongTotalColoring");
   else
     totalDaysInput.classList.remove("wrongTotalColoring");
+}
+
+function updateOutput(outputObj) {
+  const lowScoreInput = document.getElementById("lowScore");
+  lowScoreInput.setAttribute("value", outputObj.lowScore);
+  const lowScoreExample = document.getElementById("lowScoreExample");
+  let lowExStr = outputObj.lowScoreExample.join(", ");
+  lowScoreExample.setAttribute("value", lowExStr);
+  
+  const highScoreInput = document.getElementById("highScore");
+  highScoreInput.setAttribute("value", outputObj.highScore);
+  const highScoreExample = document.getElementById("highScoreExample");
+  let highExStr = outputObj.highScoreExample.join(", ");
+  highScoreExample.setAttribute("value", highExStr);
+  
+  const scoreCounts = document.getElementById("scoreCounts");
+  let scoreCountsStr = outputObj.scoreCounts.join(", ");
+  scoreCounts.setAttribute("value", scoreCountsStr);
 }
 
