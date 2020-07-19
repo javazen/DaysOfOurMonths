@@ -28,6 +28,20 @@
 		"oAP": "/build/.gitignore",
 		"oF": 0
 		},
+	"/.jshintrc": {
+		"cB": 0,
+		"ft": 8192,
+		"hM": 0,
+		"oA": 0,
+		"oAP": "/build/.jshintrc",
+		"oF": 0
+		},
+	"/build": {
+		"ft": 65536,
+		"oA": 1,
+		"oAP": "/build/build",
+		"oF": 0
+		},
 	"/css/index.css": {
 		"aP": 1,
 		"bl": 0,
@@ -139,7 +153,7 @@
 	"displayValueWasSetByUser": 0,
 	"iconImageName": "brackets_purple",
 	"iconImageWasSetByUser": 0,
-	"lastBuiltDate": 615797859.51684201
+	"lastBuiltDate": 616875810.48632705
 	},
 "projectSettings": {
 	"abortBuildOnError": 1,
