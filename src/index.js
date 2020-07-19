@@ -3,7 +3,7 @@ import {process} from './days.js';
 let leapCB, totalDaysInput, analyze;
 let mTotal, mTotalNeeded, correctTotal;
 const monthsInputs = {};
-const monthsObj = {m31:6, m30:5, m29:0, m28:1, leapValue:false};
+const monthsObj = {m31:7, m30:4, m29:0, m28:1, leapValue:false};
 
 document.addEventListener("DOMContentLoaded", function() {
   
@@ -60,21 +60,23 @@ function updateTotal(monthsObj) {
   return correctTotal;
 }
 
+function updateExample(elem, exampleArr) {
+  // could pass in a predicate and use map to create span subelements to bold or 
+  // underline the starting months of desired 3-month values
+  const str = exampleArr.join(", ");
+  elem.value = str;
+}
+
 function updateOutput(outputObj) {
   const lowScoreInput = document.getElementById("lowScore");
   lowScoreInput.value = outputObj.lowScore;
-  const lowScoreExample = document.getElementById("lowScoreExample");
-  let lowExStr = outputObj.lowScoreExample.join(", ");
-  lowScoreExample.value = lowExStr;
+  updateExample(document.getElementById("lowScoreExample"), outputObj.lowScoreExample);
   
   const highScoreInput = document.getElementById("highScore");
   highScoreInput.value = outputObj.highScore;
-  const highScoreExample = document.getElementById("highScoreExample");
-  let highExStr = outputObj.highScoreExample.join(", ");
-  highScoreExample.value = highExStr;
+  updateExample(document.getElementById("highScoreExample"), outputObj.highScoreExample);
   
   const scoreCounts = document.getElementById("scoreCounts");
-  let scoreCountsStr = outputObj.scoreCounts.join(", ");
-  scoreCounts.value = scoreCountsStr;
+  scoreCounts.value = outputObj.scoreCounts.join(", ");
 }
 
