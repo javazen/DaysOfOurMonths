@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/javazen/DaysOfOurMonths#readme",
   "devDependencies": {
-    "chai": "^4.2.0",
-    "eslint": "^7.17.0",
-    "mocha": "^8.2.1",
+    "chai": "^4.3.0",
+    "eslint": "^8.0.0",
+    "mocha": "^9.0.0",
     "requirejs": "^2.3.6"
   }
 }
